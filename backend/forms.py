@@ -5,7 +5,7 @@ from .models import Post, User, Comment
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['content']
+        fields = ['title','content']
 
 class LoginForm(forms.Form):
     username = forms.CharField()

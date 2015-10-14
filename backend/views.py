@@ -70,16 +70,6 @@ def login(request):
 
     return render(request, "login.html", context)
 
-def page(request,user):
-
-    print user
-
-    context = {
-        "user": user
-    }
-
-    return render(request, "page.html", context)
-
 def register(request):
 
     form =  RegisterForm(request.POST or None)

@@ -3,14 +3,15 @@ from django.db import models
 class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
     user_id = models.ForeignKey('User')
-    content = models.TextField(blank=False)
+    title = models.CharField(max_length=500)
+    content = models.TextField(blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-date']
 
     def __unicode__(self):
-        return self.content
+        return self.title
 
 class User(models.Model):
     user_id = models.AutoField(primary_key=True)

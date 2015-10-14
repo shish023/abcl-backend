@@ -2,7 +2,7 @@
 
 {% if form %}
 
-    <form method="POST" action="">
+    <form method="POST" action="/front/">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Post">
