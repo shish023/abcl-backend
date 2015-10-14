@@ -1,0 +1,33 @@
+<h1>Welcome, {{ user }}!</h1>
+
+
+
+{% if form %}
+<p>Start a new post:</p>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Post">
+    </form>
+
+{% endif %}
+
+<h3>Posts:</h3>
+<hr/>
+
+{% for post in posts %}
+    <a href="/{{ user }}/post/{{ post.post_id }}"> {{ post.content }}</a>
+    <h6>By {{ post.user_id.username }}</h6>
+
+        <form method="GET" action="">
+            <input type="hidden" value="{{ post.post_id }}" name="form_post_id">
+            {% if post.post_id in support %}
+                <input type="submit" value="Supported" name="form_unsupport_btn">
+            {% else %}
+                <input type="submit" value="Support" name="form_support_btn">
+            {% endif %}
+        </form>
+
+    <hr/>
+{% endfor %}

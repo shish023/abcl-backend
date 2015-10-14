@@ -7,7 +7,7 @@ from .models import Comment
 from .models import Support
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ["__unicode__", "email", "user_id"]
+    list_display = ["__unicode__", "email", "user_id", "password"]
     class Meta:
         model = User
 

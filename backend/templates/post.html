@@ -1,0 +1,26 @@
+<h1>Welcome, {{ user }}!</h1>
+
+
+
+<h3>{{ post }}</h3>
+<h6>By {{ post.user_id.username }}</h6>
+
+
+{% if form %}
+<p>Post a comment:</p>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Post">
+    </form>
+
+{% endif %}
+
+<hr/>
+
+{% for comment in comments %}
+    <p> {{ comment.content }}</a>
+    <h6>By {{ comment.user_id.username }}</h6>
+    <hr/>
+{% endfor %}
